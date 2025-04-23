@@ -21,6 +21,22 @@ const eslintConfig = [
     },
     rules: {
       'import/no-unresolved': 'error',
+      '@typescript-eslint/naming-convention': [
+        'warn',
+        {
+          selector: 'variable',
+          format: ['camelCase', 'UPPER_CASE'],
+          leadingUnderscore: 'allow',
+        },
+        {
+          selector: 'function',
+          format: ['camelCase'],
+        },
+        {
+          selector: 'typeLike', // interface, type alias, enum, class 등
+          format: ['PascalCase'],
+        },
+      ],
     },
     settings: {
       'import/resolver': {
