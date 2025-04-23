@@ -18,6 +18,7 @@ const eslintConfig = [
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
       import: await import('eslint-plugin-import'),
+      react: await import('eslint-plugin-react'),
     },
     rules: {
       'import/no-unresolved': 'error',
@@ -35,6 +36,13 @@ const eslintConfig = [
         {
           selector: 'typeLike', // interface, type alias, enum, class 등
           format: ['PascalCase'],
+        },
+      ],
+      'react/jsx-pascal-case': [
+        'warn',
+        {
+          allowAllCaps: false,
+          ignore: [],
         },
       ],
     },
