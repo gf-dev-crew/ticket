@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Cache directories
+.cache/
+.eslintcache
+
+# Public directory
+public/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Configuration files
+*.config.js
+*.config.ts
+
+# Environment variables
+.env*
+
+# Package files
+package-lock.json
+yarn.lock
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Specific file types (if needed)
+# *.d.ts
+# *.test.ts
+# *.test.tsx 
