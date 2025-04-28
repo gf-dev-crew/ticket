@@ -59,19 +59,19 @@ const eslintConfig = [
             ['^@/shared'],
 
             // 3. 스코프별 shared
-            ['^@/(?:admin|dpp|cessim)/shared'],
+            ['^@/(?:super-admin|nook)/shared'],
 
             // 4. 스코프별 entities
-            ['^@/(?:admin|dpp|cessim)/[^/]+/entities'],
+            ['^@/(?:super-admin|nook)/[^/]+/entities'],
 
             // 5. 스코프별 features
-            ['^@/(?:admin|dpp|cessim)/[^/]+/features'],
+            ['^@/(?:super-admin|nook)/[^/]+/features'],
 
             // 6. 스코프별 pages
-            ['^@/(?:admin|dpp|cessim)/[^/]+/pages'],
+            ['^@/(?:super-admin|nook)/[^/]+/pages'],
 
             // 7. 스코프별 app
-            ['^@/(?:admin|dpp|cessim)/[^/]+/app'],
+            ['^@/(?:super-admin|nook)/[^/]+/app'],
 
             // 8. 상위 디렉터리 import (`../`)
             ['^\\.\\./'],
