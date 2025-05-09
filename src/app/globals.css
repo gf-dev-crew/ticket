@@ -1,30 +1,115 @@
-@import 'tailwindcss';
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css');
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #222222;
+
+  /* 폰트 설정 (프리텐다드) */
   --font-pretendard:
     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
     'Helvetica Neue', 'Segoe UI', sans-serif;
+
+  /* 주요 컬러 설정 */
+  --primary: #d0e7ff;
+  --secondary: #ff5100;
+  --white: #ffffff;
+  --dark: #222222;
+  --error: #ff0000;
+  --gray-50: #f3f3f3;
+  --gray-100: #e6e6e6;
+  --gray-200: #c0c0c0;
+  --gray-300: #a0a0a0;
+  --gray-400: #808080;
+  --gray-500: #606060;
+
+  /* 1rem = 10px 설정 */
+  font-size: 62.5%;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-pretendard);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-error: var(--error);
+  --color-dark: var(--dark);
+  --color-white: var(--white);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* spacing 설정 */
+@spacing {
+  --spacing-2xs: 0.4rem;
+  --spacing-xs: 0.8rem;
+  --spacing-sm: 1.2rem;
+  --spacing-md: 1.6rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.4rem;
+  --spacing-2xl: 3.2rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 4.8rem;
+  --spacing-5xl: 5.6rem;
+}
+
+/* fontSize 설정 */
+@font-size {
+  --text-xs: 1.2rem;
+  --text-sm: 1.4rem;
+  --text-base: 1.6rem;
+  --text-lg: 1.8rem;
+  --text-xl: 2rem;
+  --text-2xl: 2.4rem;
+  --text-3xl: 3rem;
+  --text-4xl: 3.6rem;
+  --text-5xl: 4.8rem;
+  --text-6xl: 6rem;
+}
+
+/* border-radius 설정 */
+@border-radius {
+  --radius-none: 0;
+  --radius-2xs: 0.2rem;
+  --radius-xs: 0.4rem;
+  --radius-sm: 0.6rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.2rem;
+  --radius-xl: 1.6rem;
+  --radius-2xl: 2.4rem;
+  --radius-3xl: 3.2rem;
+  --radius-full: 9999px;
+}
+
+/* font-weight 설정 */
+@font-weight {
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-ultrabold: 900;
+}
+
+/* 반응형 브레이크포인트 설정 */
+@screen {
+  --sm: 640px; /* 모바일 */
+  --md: 768px; /* 태블릿 */
+  --lg: 1024px; /* 작은 데스크톱 */
+  --xl: 1280px; /* 데스크톱 */
+  --2xl: 1536px; /* 큰 화면 */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-pretendard);
+  font-size: var(--text-base);
 }
