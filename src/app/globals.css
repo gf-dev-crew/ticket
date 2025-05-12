@@ -42,7 +42,7 @@
   /* text-size 설정 */
   --text-xs: 1.2rem;
   --text-sm: 1.4rem;
-  --text-base: 1.6rem;
+  --text-md: 1.6rem;
   --text-lg: 1.8rem;
   --text-xl: 2rem;
   --text-2xl: 2.4rem;
@@ -69,6 +69,7 @@
   --radius-xs: 0.4rem;
   --radius-sm: 0.6rem;
   --radius-md: 0.8rem;
+  --radius-base: 1rem;
   --radius-lg: 1.2rem;
   --radius-xl: 1.6rem;
   --radius-2xl: 2.4rem;
@@ -99,4 +100,5 @@ body {
   color: var(--foreground);
   font-family: var(--font-pretendard);
   font-size: var(--text-base);
+  line-height: 1.5;
 }
