@@ -1,80 +1,92 @@
-/**
- * Button 컴포넌트
- *
- * 다양한 색상과 크기 옵션을 제공하는 기본 버튼 컴포넌트입니다.
- *
- * @example
- * // 기본 사용법
- * <Button>기본 버튼</Button>
- *
- * // 프라이머리 버튼
- * <Button color="primary">프라이머리 버튼</Button>
- *
- * // 세컨더리 버튼
- * <Button color="secondary">세컨더리 버튼</Button>
- *
- * // 다크 버튼
- * <Button color="dark">다크 버튼</Button>
- *
- * // 전체 너비 버튼
- * <Button fullWidth>전체 너비 버튼</Button>
- *
- * // 커스텀 크기 버튼
- * <Button width={200} height={50}>커스텀 크기 버튼</Button>
- *
- * // 비활성화 버튼
- * <Button disabled>비활성화 버튼</Button>
- */
 import { ButtonHTMLAttributes } from 'react';
 
 import { cn } from '@/shared/utils';
 
+/**
+ * 다양한 스타일 옵션을 제공하는 범용 버튼 컴포넌트입니다.
+ *
+ * @component
+ * @example
+ * // 기본 사용법
+ * <Button>기본 버튼</Button>
+ *
+ * // 변형 사용법
+ * <Button variant="outline" color="primary" size="lg" fullWidth>전체 너비 테두리 버튼</Button>
+ *
+ * @property {string} variant - 버튼 스타일 변형 ('solid', 'outline', 'text', 'ghost')
+ * @property {string} color - 버튼 색상 ('black', 'white', 'primary', 'secondary')
+ * @property {string} size - 버튼 크기 ('sm', 'md', 'lg')
+ * @property {boolean} fullWidth - 부모 요소의 전체 너비를 차지하는지 여부
+ * @property {string|number} width - 버튼의 너비 (px 또는 CSS 값)
+ * @property {string|number} height - 버튼의 높이 (px 또는 CSS 값)
+ */
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** 버튼 색상 - "default", "primary", "secondary", "dark" */
-  color?: 'default' | 'primary' | 'secondary' | 'dark';
-  /** 버튼 크기 - "sm", "md", "lg" */
+  color?: 'black' | 'white' | 'primary' | 'secondary';
   size?: 'sm' | 'md' | 'lg';
-  /** 버튼을 부모 요소의 전체 너비로 확장 */
+  variant?: 'solid' | 'outline' | 'text' | 'ghost';
   fullWidth?: boolean;
-  /** 버튼의 너비 (픽셀 또는 CSS 값) */
   width?: string | number;
-  /** 버튼의 높이 (픽셀 또는 CSS 값) */
   height?: string | number;
-  /** 버튼 요소에 대한 참조 */
-  ref?: React.Ref<HTMLButtonElement>;
 }
 
 export default function Button({
   children,
   className,
-  color = 'default',
+  color = 'black',
   size = 'md',
+  variant = 'solid',
   fullWidth = false,
   width,
   height,
-  ref,
   ...props
 }: ButtonProps) {
-  const colorVariants = {
-    default: 'bg-white border-gray-100 text-gray-900 hover:bg-gray-50 active:bg-gray-100',
-    primary: 'bg-primary border-primary text-gray-900 hover:opacity-90 active:opacity-100',
-    secondary: 'bg-secondary border-secondary text-white hover:opacity-90 active:opacity-100',
-    dark: 'bg-[#222222] border-[#222222] text-white hover:opacity-90 active:opacity-100',
+  const variantStyles = {
+    solid: {
+      black: 'bg-black border-black text-white hover:opacity-85 active:opacity-100',
+      white: 'bg-white border-black text-black hover:bg-gray-50 active:bg-gray-100',
+      primary: 'bg-primary border-primary text-black hover:opacity-85 active:opacity-100',
+      secondary: 'bg-secondary border-secondary text-white hover:opacity-85 active:opacity-100',
+    },
+    outline: {
+      black: 'bg-transparent border border-black text-black hover:bg-black/5 active:bg-black/10',
+      white: 'bg-transparent border border-white text-white hover:bg-white/10 active:text-white/20',
+      primary:
+        'bg-transparent border border-primary text-primary hover:bg-primary/10 active:bg-primary/20',
+      secondary:
+        'bg-transparent border border-secondary text-secondary hover:bg-secondary/10 active:bg-secondary/20',
+    },
+    text: {
+      black:
+        'bg-transparent text-black hover:text-black/80 active:text-black/60 border-transparent',
+      white:
+        'bg-transparent text-white hover:text-white/80 active:text-white/60 border-transparent',
+      primary:
+        'bg-transparent text-primary hover:text-primary/80 active:text-primary/60 border-transparent',
+      secondary:
+        'bg-transparent text-secondary hover:text-secondary/80 active:text-secondary/60 border-transparent',
+    },
+    ghost: {
+      black: 'bg-black/10 text-black hover:bg-black/20 border-transparent active:bg-black/30',
+      white: 'bg-white/10 text-black hover:bg-white/20 border-transparent active:bg-white/30',
+      primary:
+        'bg-primary/10 text-primary hover:bg-primary/20 border-transparent active:bg-primary/30',
+      secondary:
+        'bg-secondary/10 text-secondary hover:bg-secondary/20 border-transparent active:bg-secondary/30',
+    },
   };
 
   const sizeVariants = {
-    sm: 'py-[0.4rem] px-[1.2rem] text-xs',
-    md: 'py-[0.8rem] px-[1.6rem] text-sm',
-    lg: 'py-[1.2rem] px-[2rem] text-base',
+    sm: 'py-xs px-md text-sm rounded-md h-3xl',
+    md: 'py-sm px-lg text-md rounded-lg h-4xl',
+    lg: 'py-md px-xl text-lg rounded-lg h-5xl',
   };
 
   return (
     <button
-      ref={ref}
       className={cn(
-        'flex items-center justify-center border text-center disabled:cursor-not-allowed disabled:opacity-50',
-        'rounded-md',
-        colorVariants[color],
+        'flex cursor-pointer items-center justify-center border text-center font-medium disabled:cursor-not-allowed disabled:opacity-50',
+        variantStyles[variant][color],
         sizeVariants[size],
         fullWidth ? 'w-full' : '',
         className,
