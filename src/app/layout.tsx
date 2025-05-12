@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
+import { Footer, Header } from '@/shared/layout';
+
 import './globals.css';
 
 const pretendard = localFont({
@@ -22,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className={`${pretendard.variable} antialiased`}>{children}</body>
+      <body className={`${pretendard.variable} flex min-h-screen flex-col antialiased`}>
+        <Header />
+        <main className='flex-1'>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
