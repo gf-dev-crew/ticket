@@ -6,7 +6,7 @@ export default function Header() {
     <header className='fixed top-0 right-0 left-0 z-99 w-full bg-white/10 text-black backdrop-blur-sm'>
       <div className='mx-auto flex h-[64px] items-center justify-between px-[24px]'>
         <Link href='/' className='flex items-center justify-center'>
-          <Image src='/assets/logo.svg' alt='Nook Brand Logo' width={130} height={45} priority />
+          <Image src='/assets/logo.svg' alt='Nook Brand Logo' width={160} height={45} priority />
         </Link>
         <nav>
           <ul className='text-md flex space-x-8'>
