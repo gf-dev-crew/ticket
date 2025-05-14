@@ -64,6 +64,10 @@
   --spacing-5xl: 5.6rem;
   --spacing-6xl: 6.4rem;
 
+  /* 컨텐츠 너비 */
+  --spacing-contents: 1400px;
+  --spacing-contents-mobile: 100%;
+
   /* border-radius 설정 */
   --radius-none: 0;
   --radius-2xs: 0.2rem;
@@ -76,17 +80,6 @@
   --radius-2xl: 2.4rem;
   --radius-3xl: 3.2rem;
   --radius-full: 9999px;
-
-  /* font-weight 설정 */
-  --font-thin: 100;
-  --font-extralight: 200;
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  --font-extrabold: 800;
-  --font-ultrabold: 900;
 
   /* 반응형 브레이크포인트 설정 */
   --sm: 640px; /* 모바일 */
