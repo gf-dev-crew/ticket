@@ -12,6 +12,11 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: 'Nook',
   description: 'Nook',
@@ -31,6 +36,7 @@ export default function RootLayout({
         <Header />
         <main className='pt-6xl flex-1'>{children}</main>
         <Footer />
+        <div id='portal-root' />
       </body>
     </html>
   );
