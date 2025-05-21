@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang='ko'>
       <body className={`${pretendard.variable} flex min-h-screen flex-col antialiased`}>
         <Header />
-        <main className='pt-6xl flex-1'>{children}</main>
+        <main className='py-6xl px-xl min-h-screen flex-1'>{children}</main>
         <Footer />
         <div id='portal-root' />
       </body>
