@@ -51,8 +51,10 @@ export default function RecentNotice() {
               <tbody>
                 {notices.map((notice) => (
                   <tr key={notice.id} className='border-b border-gray-200 font-normal'>
-                    <td className='py-xl px-sm w-[80px] text-center text-gray-700'>{notice.id}</td>
-                    <td className='py-xl px-sm'>
+                    <td className='py-xl px-sm text-medium w-[120px] text-center font-medium text-gray-700'>
+                      {notice.notice_type}
+                    </td>
+                    <td className='py-xl px-lg'>
                       <div className='gap-xs flex items-center text-xl'>
                         <span className='hover:text-secondary cursor-pointer font-medium text-gray-700 transition-colors'>
                           {notice.title}
