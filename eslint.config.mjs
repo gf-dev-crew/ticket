@@ -18,7 +18,6 @@ const eslintConfig = [
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
       import: await import('eslint-plugin-import'),
-      react: await import('eslint-plugin-react'),
       'simple-import-sort': await import('eslint-plugin-simple-import-sort'),
     },
     rules: {

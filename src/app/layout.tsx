@@ -1,16 +1,10 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 
+import { getAllFontVariables } from '@/shared/config';
 import { Footer, Header } from '@/shared/layout';
 
 import './globals.css';
-
-const pretendard = localFont({
-  src: '../../public/fonts/pretendard/PretendardVariable.woff2',
-  display: 'swap',
-  weight: '100 900',
-  variable: '--font-pretendard',
-});
+import { Providers } from './providers';
 
 export const viewport = {
   width: 'device-width',
@@ -32,13 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className={`${pretendard.variable} flex min-h-screen flex-col antialiased`}>
-        <Header />
-        <main className='px-xl max-w-contents mx-auto min-h-screen w-full flex-1 pt-[80px] pb-[200px]'>
-          {children}
-        </main>
-        <Footer />
-        <div id='portal-root' />
+      <body className={`${getAllFontVariables()} flex min-h-screen flex-col antialiased`}>
+        <Providers>
+          <Header />
+          <main className='px-xl max-w-contents mx-auto min-h-screen w-full flex-1 pt-[160px] pb-[200px]'>
+            {children}
+          </main>
+          <Footer />
+          <div id='portal-root' />
+        </Providers>
       </body>
     </html>
   );
