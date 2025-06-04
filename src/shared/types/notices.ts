@@ -1,10 +1,16 @@
 /**
+ * 공지사항 타입 열거형
+ */
+export type NoticeType = '공지' | '점검' | '업데이트' | '이벤트' | '종료';
+
+/**
  * 공지사항 타입 정의
  */
 export interface Notice {
   id: number;
   title: string;
   category: string;
+  notice_type: NoticeType;
   content: string;
   created_at: string;
   updated_at: string;
