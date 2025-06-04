@@ -1,16 +1,47 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 
-import Logo from '@/shared/assets/logo_color.svg';
+import Logo from '@/shared/assets/brand_logo/aptimizer_logo_color.svg';
 
 export default function Header() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // 스크롤 다운 && 100px 이상 스크롤 시 헤더 숨기기
+        setIsVisible(false);
+      } else {
+        // 스크롤 업 시 헤더 보이기
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className='text-md text-dark h-[100px] w-full border-b border-gray-100 bg-white font-medium'>
+    <header
+      className={`text-md text-dark fixed top-0 z-50 h-[80px] w-full bg-white/80 font-medium backdrop-blur-md transition-transform duration-500 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'} `}
+    >
       <div className='max-w-contents px-xl mx-auto flex h-full w-full items-center justify-between'>
         {/* 로고와 메인 네비게이션 영역 */}
         <div className='flex items-center'>
           <Link href='/' className='flex items-center justify-center'>
-            <Logo className='mr-xs h-[30px] w-[138px] object-contain' alt='Aptifit Brand Logo' />
-            <span className='text-lg font-medium text-[#2C2D2E]'>고객센터</span>
+            <Logo className='mr-sm h-[48px] w-[200px] object-contain' alt='Aptimizer Brand Logo' />
+            <span className='pb-2xs text-xl font-normal text-[#000]'>고객센터</span>
           </Link>
         </div>
         {/* 네비게이션 */}

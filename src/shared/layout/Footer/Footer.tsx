@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import Logo from '@/shared/assets/aptimizer_logo_white.svg';
+import Logo from '@/shared/assets/brand_logo/aptimizer_logo_white.svg';
 
 export default function Footer() {
   return (
