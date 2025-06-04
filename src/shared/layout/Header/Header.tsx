@@ -10,6 +10,7 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  /* 스크롤에 따라 헤더 제어  */
   useEffect(() => {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
@@ -59,7 +60,7 @@ export default function Header() {
             </li>
             <li>
               <Link href='/notice' className='transition-colors hover:text-gray-600'>
-                1:1 문의
+                문의하기
               </Link>
             </li>
             <li>
