@@ -23,6 +23,12 @@
 
 @theme inline {
   --font-sans: var(--font-pretendard);
+  --font-jamsil-thin: var(--font-jamsil-thin);
+  --font-jamsil-bold: var(--font-jamsil-bold);
+  --font-jamsil-extra-bold: var(--font-jamsil-extra-bold);
+  --font-jamsil-light: var(--font-jamsil-light);
+  --font-jamsil-medium: var(--font-jamsil-medium);
+  --font-jamsil-regular: var(--font-jamsil-regular);
 
   /* color 설정 */
   --color-background: var(--background);
