@@ -41,7 +41,7 @@ export default function RecentNotice() {
         {/* 공지사항 테이블 */}
         <div className='overflow-hidden bg-white text-xl'>
           {isLoading ? (
-            <div className='py-xl text-center text-gray-500'>로딩 중...</div>
+            <div className='py-xl text-center text-gray-500'>로딩 중... (로딩 처리 미구현)</div>
           ) : notices.length === 0 ? (
             <div className='flex h-[300px] items-center justify-center text-center text-gray-500'>
               등록된 공지사항이 없습니다.
@@ -55,7 +55,7 @@ export default function RecentNotice() {
                       {notice.notice_type}
                     </td>
                     <td className='py-xl px-lg'>
-                      <div className='gap-xs flex items-center text-xl'>
+                      <div className='gap-2xs flex items-center text-xl'>
                         <span className='hover:text-secondary cursor-pointer font-medium text-gray-700 transition-colors'>
                           {notice.title}
                         </span>
