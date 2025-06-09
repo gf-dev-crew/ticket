@@ -2,18 +2,10 @@
 
 import { useRecentNotices } from '@/shared/hooks/queries';
 import { Button } from '@/shared/ui';
+import { formatDate } from '@/shared/utils';
 
 export default function RecentNotice() {
   const { data: notices = [], isLoading, error } = useRecentNotices({ limit: 5 });
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('ko-KR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    });
-  };
 
   if (error) {
     return (
