@@ -69,7 +69,7 @@ export default function ProductSection() {
                       <p className='font-jamsil-light text-md tracking-wide text-gray-300 uppercase'>
                         {project.subtitle}
                       </p>
-                      <h3 className='font-jamsil-bold text-dark text-[44px] leading-[1.5]'>
+                      <h3 className='font-jamsil-bold text-dark text-[32px] leading-[1.5]'>
                         {project.title}
                       </h3>
                     </div>
