@@ -12,8 +12,8 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Nook',
-  description: 'Nook',
+  title: 'Playlist',
+  description: '예매일정을 한눈에 확인하세요. 티켓 오픈',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${getAllFontVariables()} flex min-h-screen flex-col antialiased`}>
         <Providers>
           <Header />
-          <main className='px-xl max-w-contents mx-auto min-h-screen w-full flex-1 pt-[160px] pb-[200px]'>
+          <main className='px-4xl mx-auto min-h-screen w-full flex-1 pt-[180px] pb-[200px]'>
             {children}
           </main>
           <Footer />

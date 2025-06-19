@@ -8,6 +8,6 @@ export default function NoticePage() {
 }
 
 export const metadata = {
-  title: '앱티마이저 고객센터 | 공지사항',
-  description: '앱티마이저의 최신 공지사항 및 안내사항을 확인하세요.',
+  title: 'TicketOpen | 공지사항',
+  description: 'TicketOpen 에서 예매 일정을 한눈에 확인하세요.',
 };

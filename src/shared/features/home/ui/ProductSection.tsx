@@ -26,8 +26,8 @@ export default function ProductSection() {
   ];
 
   return (
-    <section className='py-5xl px-xl'>
-      <div className='max-w-contents mx-auto'>
+    <section className='py-5xl'>
+      <div className=''>
         {/* 섹션 헤더 */}
         <div className='mb-4xl text-left'>
           <h2 className='font-jamsil-bold text-dark mb-lg text-4xl'>주요 서비스</h2>

@@ -66,7 +66,7 @@ export default function RecentNotice() {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}
         >
-          <h2 className='font-jamsil-bold text-dark mb-lg text-4xl'>업데이트 & 점검 안내</h2>
+          <h2 className='font-jamsil-bold text-dark mb-lg text-4xl'>공지사항 & 업데이트</h2>
         </div>
 
         {/* 공지사항 테이블 */}

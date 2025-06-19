@@ -1,84 +1,48 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import Link from 'next/link';
 
-import Logo from '@/shared/assets/brand_logo/aptimizer_logo_color.svg';
+import Logo from '@/shared/assets/brand_logo/playdrop.svg';
+
+import useHeaderLayout from './hooks/useHeaderLayout';
+
+const NAV_ITEMS = [
+  { label: 'Sports', href: '/sports' },
+  { label: 'Festival', href: '/festival' },
+  { label: 'Concert', href: '/concert' },
+  { label: 'Exhibition', href: '/exhibition' },
+  { label: 'ETC.', href: '/etc' },
+];
 
 export default function Header() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  /* 스크롤에 따라 헤더 제어  */
-  useEffect(() => {
-    const controlNavbar = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // 스크롤 다운 && 100px 이상 스크롤 시 헤더 숨기기
-        setIsVisible(false);
-      } else {
-        // 스크롤 업 시 헤더 보이기
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', controlNavbar);
-
-    return () => {
-      window.removeEventListener('scroll', controlNavbar);
-    };
-  }, [lastScrollY]);
+  /* 스크롤 여부 상태 관리 */
+  const isScrolled = useHeaderLayout();
 
   return (
     <header
-      className={`text-md text-dark fixed top-0 z-50 h-[80px] w-full bg-white/80 font-medium backdrop-blur-md transition-transform duration-500 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'} `}
+      className={`fixed top-0 z-50 w-full border-b border-gray-100 bg-white ${isScrolled ? 'h-[80px]' : 'h-[148px]'}`}
     >
-      <div className='max-w-contents px-xl mx-auto flex h-full w-full items-center justify-between'>
-        {/* 로고와 메인 네비게이션 영역 */}
-        <div className='flex items-center'>
+      <div
+        className={`px-4xl flex h-full w-full items-center justify-center ${isScrolled ? 'flex-row justify-start' : 'flex-col'}`}
+      >
+        {/* Logo */}
+        <div className={`flex items-center ${isScrolled ? 'w-[160px]' : 'py-sm w-full'}`}>
           <Link href='/' className='flex items-center justify-center'>
-            <Logo className='mr-sm h-[48px] w-[200px] object-contain' alt='Aptimizer Brand Logo' />
-            <span className='pb-2xs text-xl font-normal text-[#000]'>고객센터</span>
+            <Logo className='fill-[#FF0082] object-contain' alt='Playdrop Brand Logo' />
           </Link>
         </div>
-        {/* 네비게이션 */}
-        <nav>
-          <ul className='space-x-4xl flex text-lg'>
-            <li>
-              <Link href='/notice' className='transition-colors hover:text-gray-600'>
-                공지사항
-              </Link>
-            </li>
-            <li>
-              <Link href='/notice' className='transition-colors hover:text-gray-600'>
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link href='/notice' className='transition-colors hover:text-gray-600'>
-                문의하기
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='https://www.aptifit.co.kr'
-                className='transition-colors hover:text-gray-600'
-              >
-                <p className='font-medium'>앱티핏</p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='https://dashboard.aptifit.co.kr'
-                className='transition-colors hover:text-gray-600'
-              >
-                <p className='font-medium'>앱티핏 대시보드</p>
-              </Link>
-            </li>
+        {/* Navigation */}
+        <nav className={` ${isScrolled ? 'ml-2xl' : 'pt-md pb-sm w-full'}`}>
+          <ul
+            className={`flex font-extrabold ${isScrolled ? 'space-x-xl text-3xl' : 'space-x-3xl text-4xl'}`}
+          >
+            {NAV_ITEMS.map((item) => (
+              <li key={item.label}>
+                <Link href={item.href} className='hover:underline'>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

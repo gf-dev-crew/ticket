@@ -2,15 +2,15 @@ export default function HeroSection() {
   return (
     <section className='flex flex-col items-center justify-center'>
       {/* Hero Section 타이틀 */}
-      <div className='mb-3xl flex h-full w-full flex-row items-end justify-between px-[35px]'>
+      <div className='mb-3xl flex h-full w-full flex-row items-end justify-between'>
         <div className='flex-shrink-0'>
           <h1 className='font-jamsil-extra-bold text-left text-6xl whitespace-nowrap text-black'>
-            EXCELLENCE FOR ALL
+            Hero Section Main Title
           </h1>
         </div>
         <div className='pb-2xs ml-8 flex flex-1 translate-y-[-9px] items-end justify-end border-b border-black'>
           <p className='font-jamsil-regular text-2xl text-black'>
-            AI, <span className='font-jamsil-light'>적성의 시대</span>
+            Sub, <span className='font-jamsil-light'>Sub Title</span>
           </p>
         </div>
       </div>
@@ -31,25 +31,11 @@ export default function HeroSection() {
           <div className='flex w-full flex-col'>
             <div className='mb-5xl text-[42px] text-white'>
               <h2 className='font-jamsil-regular text-left leading-[1.2]'>
-                <p>맞춤형 진로 설계, </p>
+                <p>Hero Section Sub Title, </p>
                 <p>
-                  <span className='text-primary'>앱티마이저</span>가 함께합니다.
+                  <span className='text-primary'>Hero Section Sub Title</span>가 함께합니다.
                 </p>
               </h2>
-            </div>
-            <div className='gap-5xl flex h-full w-full items-center justify-center'>
-              <div className='pt-xl flex w-full flex-row justify-between border-t border-white/30'>
-                <div className='text-xl text-white/70'>앱티핏</div>
-                <div className='font-jamsil-regular text-[32px] text-white'>서버 점검중</div>
-              </div>
-              <div className='pt-xl flex w-full flex-row justify-between border-t border-white/30'>
-                <div className='text-xl text-white/70'>앱티핏 대시보드</div>
-                <div className='font-jamsil-regular text-[32px] text-white'>사용 가능</div>
-              </div>{' '}
-              <div className='pt-xl flex w-full flex-row justify-between border-t border-white/30'>
-                <div className='font-jamsil-light text-xl text-white/70'>생기뷰</div>
-                <div className='font-jamsil-regular text-[32px] text-white'>업데이트중</div>
-              </div>
             </div>
           </div>
         </div>
