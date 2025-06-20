@@ -12,8 +12,8 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Playlist',
-  description: '예매일정을 한눈에 확인하세요. 티켓 오픈',
+  title: 'PlayDrop',
+  description: 'Description',
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },
